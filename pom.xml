@@ -6,7 +6,7 @@
 	<artifactId>onibus</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>sabaramais</name>
+	<name>onibus-api</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -48,6 +48,10 @@
 			<groupId>com.jayway.jsonpath</groupId>
 			<artifactId>json-path</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-hibernate5</artifactId>
 		</dependency>
 	</dependencies>
 
