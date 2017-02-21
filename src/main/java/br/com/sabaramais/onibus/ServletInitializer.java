@@ -1,4 +1,4 @@
-package net.rodrigobrito.api;
+package br.com.sabaramais.onibus;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;

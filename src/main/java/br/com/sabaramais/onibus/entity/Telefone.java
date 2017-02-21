@@ -1,4 +1,4 @@
-package net.rodrigobrito.api.Entity;
+package br.com.sabaramais.onibus.entity;
 
 import java.util.Set;
 

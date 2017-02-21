@@ -1,6 +1,5 @@
-package net.rodrigobrito.api.Entity;
+package br.com.sabaramais.onibus.entity;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
