@@ -13,7 +13,7 @@ public interface CompanyRepository extends CrudRepository<Company, Long> {
 	 * Get all bus and lines if they have
 	 * @return list of bus with lines
 	 */
-	@Query("select c from company as c left join fetch c.bus")
+	@Query("select distinct c from company as c left join fetch c.bus")
 	public Set<Company> getCompanyAndBus();
 	
 	/**

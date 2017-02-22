@@ -19,5 +19,29 @@ public class BusService {
 	public Iterable<Bus> findAll() {
 		return busRepository.findAll();
 	}
+
+	/**
+	 * Get a specific bus from database without schedule
+	 * @return bus or null if not found
+	 */
+	public Bus findOne(long id) {
+		return busRepository.findOne(id);
+	}
+
+	/**
+	 * Get a specific bus from database with all schedules
+	 * @return bus or null if not found
+	 */
+	public Bus getBusWithSchedule(long id) {
+		return busRepository.getBusWithSchedule(id);
+	}
+
+	/**
+	 * Get all bus from database with all schedules
+	 * @return list of bus
+	 */
+	public Iterable<Bus> getBusWithSchedule() {
+		return busRepository.getBusWithSchedule();
+	}
 	
 }
