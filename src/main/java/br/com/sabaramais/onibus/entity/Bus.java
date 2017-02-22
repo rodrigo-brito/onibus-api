@@ -1,13 +1,16 @@
 package br.com.sabaramais.onibus.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity(name = "bus")
@@ -15,38 +18,53 @@ public class Bus {
 	@Id
 	@GeneratedValue
 	private long id;
+	private String number;
 	private String name;
-	private String imageUrl;
 	private double fare;
 
-	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	@OneToMany(mappedBy = "bus", fetch = FetchType.LAZY)
-	private Set<Line> lines;
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
+	private List<Schedule> schedules;
+
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "company_id")
+	private Company company;
 
 	public Bus() {
 	}
 	
 	/**
 	 * @param id
-	 * @param name the bus name
-	 * @param imageUrl the bus photo url
-	 * @param fare the bus fare
-	 * @param lines list of bus lines
+	 * @param number the line number
+	 * @param name the name of the line
+	 * @param fare the fare of the line
+	 * @param schedules the list of schedules of the line
+	 * @param company the company of the line
 	 */
-	public Bus(long id, String name, String imageUrl, double fare, Set<Line> lines) {
+	public Bus(long id, String number, String name, double fare, List<Schedule> schedules, Company company) {
 		this.id = id;
+		this.number = number;
 		this.name = name;
-		this.imageUrl = imageUrl;
 		this.fare = fare;
-		this.lines = lines;
+		this.schedules = schedules;
+		this.company = company;
 	}
-
+	
 	public long getId() {
 		return id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
 	}
 
 	public String getName() {
@@ -56,15 +74,7 @@ public class Bus {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
+	
 	public double getFare() {
 		return fare;
 	}
@@ -73,11 +83,19 @@ public class Bus {
 		this.fare = fare;
 	}
 
-	public Set<Line> getLines() {
-		return lines;
+	public List<Schedule> getSchedules() {
+		return schedules;
 	}
 
-	public void setLines(Set<Line> lines) {
-		this.lines = lines;
+	public void setSchedules(List<Schedule> schedules) {
+		this.schedules = schedules;
+	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
 	}
 }

@@ -30,8 +30,8 @@ public class Schedule {
 
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "line_id")
-	private Line line;
+	@JoinColumn(name = "bus_id")
+	private Bus bus;
 
 	public Schedule() {
 	}
@@ -43,16 +43,16 @@ public class Schedule {
 	 * @param observation some observation of the schedule
 	 * @param time the time of departure
 	 * @param dayType the day type
-	 * @param line the bus line of schedule
+	 * @param bus the bus bus of schedule
 	 */
-	public Schedule(long id, String origin, String destiny, String observation, Date time, DayType dayType, Line line) {
+	public Schedule(long id, String origin, String destiny, String observation, Date time, DayType dayType, Bus bus) {
 		this.id = id;
 		this.origin = origin;
 		this.destiny = destiny;
 		this.observation = observation;
 		this.time = time;
 		this.dayType = dayType;
-		this.line = line;
+		this.bus = bus;
 	}
 
 	public long getId() {
@@ -103,11 +103,11 @@ public class Schedule {
 		this.dayType = dayType;
 	}
 
-	public Line getLine() {
-		return line;
+	public Bus getBus() {
+		return bus;
 	}
 
-	public void setLine(Line line) {
-		this.line = line;
+	public void setBus(Bus bus) {
+		this.bus = bus;
 	}
 }
