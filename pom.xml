@@ -53,6 +53,12 @@
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-hibernate5</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>org.hsqldb</groupId>
+		    <artifactId>hsqldb</artifactId>
+		    <scope>runtime</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<repositories>

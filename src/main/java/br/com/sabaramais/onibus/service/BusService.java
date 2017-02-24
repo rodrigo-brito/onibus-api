@@ -12,6 +12,18 @@ public class BusService {
 	@Autowired
 	private BusRepository busRepository;
 
+	public BusService(BusRepository busRepository) {
+		this.busRepository = busRepository;
+	}
+	
+	public BusRepository getBusRepository() {
+		return busRepository;
+	}
+
+	public void setBusRepository(BusRepository busRepository) {
+		this.busRepository = busRepository;
+	}
+
 	/**
 	 * Get all bus lines from database
 	 * @return list of bus lines

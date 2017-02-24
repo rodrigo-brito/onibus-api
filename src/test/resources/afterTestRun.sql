@@ -1,0 +1,6 @@
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE `bus`;
+TRUNCATE `company`;
+TRUNCATE `day_type`;
+TRUNCATE `schedule`;
+SET FOREIGN_KEY_CHECKS = 1;
