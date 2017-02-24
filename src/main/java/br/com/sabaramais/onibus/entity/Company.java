@@ -17,6 +17,7 @@ public class Company {
 	private long id;
 	private String name;
 	private String imageUrl;
+	private String description;
 
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	@OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
@@ -31,11 +32,12 @@ public class Company {
 	 * @param imageUrl the bus photo url
 	 * @param bus list of bus bus
 	 */
-	public Company(long id, String name, String imageUrl, Set<Bus> bus) {
+	public Company(long id, String name, String imageUrl, String description, Set<Bus> bus) {
 		this.id = id;
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.bus = bus;
+		this.description = description;
 	}
 
 	public long getId() {
@@ -60,6 +62,14 @@ public class Company {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Set<Bus> getBus() {

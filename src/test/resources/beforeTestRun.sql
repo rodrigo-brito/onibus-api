@@ -1,6 +1,6 @@
-INSERT INTO `company` (`id`, `image_url`, `name`) VALUES
-(1, NULL, 'Vinscol'),
-(2, NULL, 'Cisne');
+INSERT INTO `company` (`id`, `image_url`, `name`, `description`) VALUES
+(1, 'http://rodrigobrito.net/wp-content/uploads/2017/02/onibus_foto.jpg', 'Vinscol', 'Linha municipal'),
+(2, 'http://rodrigobrito.net/wp-content/uploads/2017/02/onibus_2.jpg', 'Cisne', 'Linha intermunicipal');
 
 INSERT INTO `bus` (`id`, `fare`, `name`, `number`, `company_id`) VALUES
 (1, 4.8, 'BH - Sabará', '4988', 2),
