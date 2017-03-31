@@ -16,7 +16,7 @@ public class ScheduleService {
 	 * @return list of schedules
 	 */
 	public Iterable<Schedule> findAll() {
-		return scheduleRepository.findAll();
+		return scheduleRepository.getAllSchedulesByTime();
 	}
 
 	/**

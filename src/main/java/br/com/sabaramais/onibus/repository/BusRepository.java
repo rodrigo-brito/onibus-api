@@ -7,7 +7,7 @@ import br.com.sabaramais.onibus.entity.Bus;
 
 public interface BusRepository extends CrudRepository<Bus, Long>{
 
-	@Query("select b from bus as b left join fetch b.schedules where b.id = ?1")
+	@Query("select b from bus as b left join fetch b.schedules s where b.id = ?1 order by s.time")
 	public Bus getBusWithSchedule(long id);
 
 	@Query("select distinct b from bus as b left join fetch b.schedules")
