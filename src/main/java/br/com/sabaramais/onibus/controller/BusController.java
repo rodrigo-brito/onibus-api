@@ -1,8 +1,11 @@
 package br.com.sabaramais.onibus.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.sabaramais.onibus.entity.Bus;
@@ -46,7 +49,10 @@ public class BusController {
 	 * @return bus or null if not found
 	 */
 	@RequestMapping("/{id}/schedule")
-	public Bus getBusWithSchedule(@PathVariable("id") long id){
+	public Bus getBusWithSchedule(@PathVariable("id") long id, @RequestParam(name = "day_type", required = false) Long idDayType){
+		if(idDayType != null){
+			return busService.getBusWithScheduleByDayType(id, idDayType.intValue());
+		}
 		return busService.getBusWithSchedule(id);
 	}
 

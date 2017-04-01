@@ -55,5 +55,15 @@ public class BusService {
 	public Iterable<Bus> getBusWithSchedule() {
 		return busRepository.getBusWithSchedule();
 	}
+
+	/**
+	 * Get a specific bus from database with the schedules by day type
+	 * @param idBus the bus id
+	 * @param idDayType the id of day Type
+	 * @return bus or null if not found
+	 */
+	public Bus getBusWithScheduleByDayType(long idBus, long idDayType) {
+		return busRepository.getBusWithSchedulebyDayType(idBus, idDayType);
+	}
 	
 }
