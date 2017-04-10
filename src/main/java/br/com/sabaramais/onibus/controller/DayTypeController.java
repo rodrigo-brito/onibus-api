@@ -1,5 +1,7 @@
 package br.com.sabaramais.onibus.controller;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +33,11 @@ public class DayTypeController {
 	@RequestMapping("/{id}")
 	public DayType findOne(@PathVariable("id") long id){
 		return dayTypeService.findOne(id);
+	}
+	
+	@RequestMapping("/{id}/schedule")
+	public Set<DayType> findSchedulesByDayType(@PathVariable("id") long id){
+		return dayTypeService.findSchedulesByDayType(id);
 	}
 
 }

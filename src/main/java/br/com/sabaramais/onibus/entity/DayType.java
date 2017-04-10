@@ -20,7 +20,6 @@ public class DayType {
 	private String name;
 	private boolean active;
 
-	@JsonIgnore
 	@OneToMany(mappedBy = "dayType", fetch=FetchType.LAZY)
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private List<Schedule> schedules;

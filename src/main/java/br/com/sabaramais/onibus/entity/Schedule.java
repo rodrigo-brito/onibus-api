@@ -3,6 +3,7 @@ package br.com.sabaramais.onibus.entity;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -11,6 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity(name = "schedule")
 public class Schedule {
@@ -24,8 +26,10 @@ public class Schedule {
 	@Temporal(TemporalType.TIME)
 	private Date time;
 
-	@ManyToOne
+	@JsonIgnore
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "daytype_id")
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private DayType dayType;
 
 	@JsonIgnore

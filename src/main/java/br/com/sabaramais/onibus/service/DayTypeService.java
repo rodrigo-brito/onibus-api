@@ -1,5 +1,7 @@
 package br.com.sabaramais.onibus.service;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,10 @@ public class DayTypeService {
 	 */
 	public DayType findOne(long id) {
 		return dayTypeRepository.findOne(id);
+	}
+
+	public Set<DayType> findSchedulesByDayType(long id) {
+		return dayTypeRepository.findSchedulesByDayType(id);
 	}
 
 }
