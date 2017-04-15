@@ -22,7 +22,7 @@ public class DayTypeService {
 	}
 
 	/**
-	 * Get a specifica day type
+	 * Get a specific day type
 	 * @param id the day type id
 	 * @return day type or null if not found
 	 */
@@ -30,8 +30,13 @@ public class DayTypeService {
 		return dayTypeRepository.findOne(id);
 	}
 
-	public Set<DayType> findSchedulesByDayType(long id) {
-		return dayTypeRepository.findSchedulesByDayType(id);
+	/**
+	 * Get a DayType list with all schedules from a specific bus
+	 * @param busId the bus id identifier
+	 * @return list of DayType
+	 */
+	public Set<DayType> findSchedulesByDayType(long busId) {
+		return dayTypeRepository.findSchedulesByDayType(busId);
 	}
 
 }

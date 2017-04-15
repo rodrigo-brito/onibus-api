@@ -1,6 +1,7 @@
 package br.com.sabaramais.onibus.controller;
 
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,13 +10,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.sabaramais.onibus.entity.Bus;
+import br.com.sabaramais.onibus.entity.DayType;
 import br.com.sabaramais.onibus.service.BusService;
+import br.com.sabaramais.onibus.service.DayTypeService;
 
 @RestController
 @RequestMapping("/api/v1/bus")
 public class BusController {
 	@Autowired
 	private BusService busService;
+	@Autowired
+	private DayTypeService dayTypeService;
 	
 	/**
 	 * Get all lines from database
@@ -54,6 +59,16 @@ public class BusController {
 			return busService.getBusWithScheduleByDayType(id, idDayType.intValue());
 		}
 		return busService.getBusWithSchedule(id);
+	}
+	
+	/**
+	 * Schedules separated by day type
+	 * @param busId the bus identifier
+	 * @return a list of day type
+	 */
+	@RequestMapping("/{id}/schedule/daytype")
+	public Set<DayType> findSchedulesByDayType(@PathVariable("id") long busId){
+		return dayTypeService.findSchedulesByDayType(busId);
 	}
 
 }

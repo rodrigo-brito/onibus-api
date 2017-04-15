@@ -34,10 +34,4 @@ public class DayTypeController {
 	public DayType findOne(@PathVariable("id") long id){
 		return dayTypeService.findOne(id);
 	}
-	
-	@RequestMapping("/{id}/schedule")
-	public Set<DayType> findSchedulesByDayType(@PathVariable("id") long id){
-		return dayTypeService.findSchedulesByDayType(id);
-	}
-
 }
