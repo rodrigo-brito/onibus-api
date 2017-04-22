@@ -9,7 +9,6 @@ import br.com.sabaramais.onibus.entity.Bus;
 import br.com.sabaramais.onibus.entity.DayType;
 
 public interface DayTypeRepository extends CrudRepository<DayType, Long>{
-	//@Query("select d from schedule s join s.dayType d where s.bus.id = ?1")
-	@Query("select d from day_type as d join fetch d.schedules as s where s.bus.id = ?1")
+	@Query("select d from day_type as d join fetch d.schedules as s where s.bus.id = ?1 ORDER BY s.time ASC")
 	public Set<DayType> findSchedulesByDayType(long id);
 }
